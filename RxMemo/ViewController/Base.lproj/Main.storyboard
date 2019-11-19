@@ -23,5 +23,92 @@
             </objects>
             <point key="canvasLocation" x="132" y="121"/>
         </scene>
+        <!--메모 목록-->
+        <scene sceneID="zg3-Zp-Niq">
+            <objects>
+                <viewController id="76W-Ni-hxx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L4e-fF-1Ly">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="U60-23-ORY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 목록" id="mDU-hu-akI"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQe-rr-9Jj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="849.10714285714278"/>
+        </scene>
+        <!--새 메모-->
+        <scene sceneID="OwE-eq-cnp">
+            <objects>
+                <viewController id="Ed1-sE-hBo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="57e-Rg-b7l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="sJk-cc-xwQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="새 메모" id="8sA-SF-RSO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ds-KM-61E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2860.8695652173915" y="135.9375"/>
+        </scene>
+        <!--메모 보기-->
+        <scene sceneID="8QE-qH-0Mt">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="Jv0-zf-OER" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qAD-cL-a8k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Bi-y4-rDy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 보기" id="JSz-7X-wga"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="676-Qw-Fg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="849"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ofh-fB-27s">
+            <objects>
+                <navigationController storyboardIdentifier="ListNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Vax-wc-yJH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gOr-Wb-eaR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="76W-Ni-hxx" kind="relationship" relationship="rootViewController" id="jVw-O6-sR9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnJ-BA-p77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="848.4375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WQy-99-iV7">
+            <objects>
+                <navigationController storyboardIdentifier="ComposeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="7u2-0d-YTx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zOe-GP-u0g">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ed1-sE-hBo" kind="relationship" relationship="rootViewController" id="h8A-Zb-uHU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEv-hQ-MqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1950.7246376811595" y="135.9375"/>
+        </scene>
     </scenes>
 </document>
