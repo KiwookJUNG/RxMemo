@@ -14,6 +14,7 @@
 		A00A62F5238428D2007F59A3 /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A00A62F3238428D2007F59A3 /* RxMemo.xcdatamodeld */; };
 		A00A62F7238428D4007F59A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00A62F6238428D4007F59A3 /* Assets.xcassets */; };
 		A00A62FA238428D4007F59A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00A62F8238428D4007F59A3 /* LaunchScreen.storyboard */; };
+		A00EA6462384478500499E87 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00EA6452384478500499E87 /* MemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A00A62F6238428D4007F59A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00A62F9238428D4007F59A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A00A62FB238428D4007F59A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00EA6452384478500499E87 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		A35C81AACBF9C805EB5A05B8 /* Pods-RxMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.debug.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 		A00EA64023842CC100499E87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A00EA6452384478500499E87 /* MemoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00A62EB238428D2007F59A3 /* AppDelegate.swift in Sources */,
+				A00EA6462384478500499E87 /* MemoModel.swift in Sources */,
 				A00A62ED238428D2007F59A3 /* SceneDelegate.swift in Sources */,
 				A00A62F5238428D2007F59A3 /* RxMemo.xcdatamodeld in Sources */,
 			);
