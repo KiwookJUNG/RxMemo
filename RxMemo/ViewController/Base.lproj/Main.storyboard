@@ -30,11 +30,48 @@
                     <view key="view" contentMode="scaleToFill" id="L4e-fF-1Ly">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-iG-kVa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="fuT-1w-PP9" style="IBUITableViewCellStyleDefault" id="OhL-vf-xIY">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OhL-vf-xIY" id="Ib2-Yi-Lo1">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fuT-1w-PP9">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="U60-23-ORY" firstAttribute="trailing" secondItem="lfT-iG-kVa" secondAttribute="trailing" id="Bsa-kF-WXl"/>
+                            <constraint firstItem="lfT-iG-kVa" firstAttribute="leading" secondItem="U60-23-ORY" secondAttribute="leading" id="End-MI-4Xu"/>
+                            <constraint firstItem="U60-23-ORY" firstAttribute="bottom" secondItem="lfT-iG-kVa" secondAttribute="bottom" id="i3n-Kl-idM"/>
+                            <constraint firstItem="lfT-iG-kVa" firstAttribute="top" secondItem="U60-23-ORY" secondAttribute="top" id="xUK-Pb-420"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="U60-23-ORY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="메모 목록" id="mDU-hu-akI"/>
+                    <navigationItem key="navigationItem" title="메모 목록" id="mDU-hu-akI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BQN-03-2iR"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addButton" destination="BQN-03-2iR" id="cVx-MA-uez"/>
+                        <outlet property="listTableView" destination="lfT-iG-kVa" id="kxQ-Gb-cFw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQe-rr-9Jj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,7 +117,7 @@
                 <navigationController storyboardIdentifier="ListNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Vax-wc-yJH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gOr-Wb-eaR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -98,7 +135,7 @@
                 <navigationController storyboardIdentifier="ComposeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="7u2-0d-YTx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zOe-GP-u0g">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
