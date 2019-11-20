@@ -130,8 +130,8 @@
 				A00A62F0238428D2007F59A3 /* Main.storyboard */,
 				A00A62F8238428D4007F59A3 /* LaunchScreen.storyboard */,
 				A00EA64D2384569900499E87 /* MemoListViewController.swift */,
-				A00EA64F238456D400499E87 /* MemoDetailViewController.swift */,
 				A00EA651238456F800499E87 /* MemoComposeViewController.swift */,
+				A00EA64F238456D400499E87 /* MemoDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 			children = (
 				A04B8CD82385344C00743305 /* CommonViewModel.swift */,
 				A00EA6532384576200499E87 /* MemoListViewModel.swift */,
-				A00EA6552384578300499E87 /* MemoDetailViewModel.swift */,
 				A00EA6572384579700499E87 /* MemoComposeViewModel.swift */,
+				A00EA6552384578300499E87 /* MemoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
