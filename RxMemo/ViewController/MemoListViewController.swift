@@ -13,7 +13,7 @@ import NSObject_Rx
 
 class MemoListViewController: UIViewController, ViewModelBindableType {
     
-    var viewModel : MemoListViewModel!
+    var viewModel: MemoListViewModel!
     
     @IBOutlet weak var listTableView: UITableView!
 
@@ -36,6 +36,9 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
                 cell.textLabel?.text = memo.content
             }
             .disposed(by: rx.disposeBag)
+        
+        addButton.rx.action = viewModel.makeCreateAction()
+        
     }
 
 

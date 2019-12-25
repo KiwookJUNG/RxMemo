@@ -10,6 +10,14 @@ import UIKit
 
 class MemoDetailViewController: UIViewController, ViewModelBindableType {
 
+    @IBOutlet var listTableView: UITableView!
+    @IBOutlet var deleteButton: UIBarButtonItem!
+    
+    @IBOutlet var editButton: UIBarButtonItem!
+    
+    @IBOutlet var shareButton: UIBarButtonItem!
+    
+    
     var viewModel : MemoDetailViewModel!
     
     override func viewDidLoad() {

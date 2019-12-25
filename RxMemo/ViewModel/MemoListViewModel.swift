@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Action
 
 // 뷰 모델 추가되는 것
 // 1. 의존성을 주입하는 생성자.
@@ -18,5 +19,31 @@ class MemoListViewModel: CommonViewModel {
     // 메모 목록
     var memoList: Observable<[MemoModel]> {
         return storage.memoList()
+    }
+    
+    func performUpdate(memo: MemoModel) -> Action<String, Void> {
+        return Action { input in
+            return self.storage.updateMemo(memo: memo, content: input).map { _ in }
+        }
+    }
+    
+    func performCancel(memo: MemoModel) -> CocoaAction {
+        return Action {
+            return self.storage.deleteMemo(memo: memo).map { _ in }
+        }
+    }
+    
+    // 뷰 모델이 메모 목록 화면에서 메모 쓰기 화면으로 전환하는 코드를 처리해야한다.
+    func makeCreateAction() -> CocoaAction {
+        return CocoaAction { _ in
+            return self.storage.createMemo(content: "")
+                .flatMap { memo -> Observable<Void> in
+                    let composeViewModel = MemoComposeViewModel(title: "새 메모",  sceneCoordinator: self.sceneCoordinator, storage: self.storage, saveAction: self.performUpdate(memo: memo), cancelAction: self.performCancel(memo: memo))
+                    
+                    let composeScene = Scene.compose(composeViewModel)
+                    
+                    return self.sceneCoordinator.transition(to: composeScene, using: .modal, animated: true).asObservable().map { _ in }
+            }
+        }
     }
 }

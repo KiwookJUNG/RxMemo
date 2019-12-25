@@ -16,13 +16,15 @@ enum Scene {
     case compose(MemoComposeViewModel)
 }
 
-// MARK: 스토리보드에 있는 Scene을 생성하고 연관값에 저장된 뷰모델을 바인딩하는 메소드
+// MARK: Scene을 생성하고(스토리보드)
+// 연관값에 저장된 뷰모델을 바인딩하는 메소드
 extension Scene {
     func instantiate(from storyboard: String = "Main") -> UIViewController {
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         
         // 메모 목록 신 생성, 뷰 모델 바인딩 후 리턴
         switch self {
+            
             
         case .list(let viewModel):
             guard let nav = storyboard.instantiateViewController(withIdentifier: "ListNavigation") as? UINavigationController else {
@@ -37,8 +39,8 @@ extension Scene {
             return nav
             
             
+            
         case .detail(let viewModel):
-        
             guard var detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? MemoDetailViewController else {
                 fatalError()
             }
@@ -47,8 +49,8 @@ extension Scene {
             
             return detailVC
             
+            
         case .compose(let viewModel):
-                
             guard let nav = storyboard.instantiateViewController(withIdentifier: "ComposeNavigation") as? UINavigationController else {
                 fatalError()
             }
@@ -58,11 +60,7 @@ extension Scene {
             }
             
             composeVC.bind(viewModel: viewModel)
-            return composeVC
+            return nav
         }
-        
-    
-        
-        
     }
 }

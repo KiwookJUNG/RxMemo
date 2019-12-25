@@ -38,6 +38,8 @@ class SceneCoordinator: SceneCoordinatorType {
             currentVC = target
             window.rootViewController = target
             subject.onCompleted()
+            
+            
         // 네비게이션에 임베드 돼있지 않다면 에러
         case .push:
             guard let nav = currentVC.navigationController else {
@@ -48,8 +50,10 @@ class SceneCoordinator: SceneCoordinatorType {
             // 네이게이션이 있다면 푸쉬 후 컴플리티드
             nav.pushViewController(target, animated: animated)
             currentVC = target
-            
+    
             subject.onCompleted()
+            
+            
             
         // 신을 프레젠트
         case .modal:
@@ -64,6 +68,8 @@ class SceneCoordinator: SceneCoordinatorType {
         return subject.ignoreElements()
     }
     
+    
+    
     @discardableResult
     func close(animated: Bool) -> Completable {
         // subject를 생성하여 subject.ignoreElements()로 Completable을 반환하는게 아니라
@@ -77,7 +83,7 @@ class SceneCoordinator: SceneCoordinatorType {
                     completable(.completed)
                 }
             } else if let nav = self.currentVC.navigationController {
-                        // 네이게이션 방식으로 전환된 화면은 pop 해주고 pop할 수 없으면 에러
+                // 네이게이션 방식으로 전환된 화면은 pop 해주고 pop할 수 없으면 에러
                 guard nav.popViewController(animated: animated) != nil else {
                     completable(.error(TransitionError.cannotPop))
                     return Disposables.create()
@@ -86,7 +92,7 @@ class SceneCoordinator: SceneCoordinatorType {
                 self.currentVC = nav.viewControllers.last!
                 completable(.completed)
             } else {
-                    // 그 외의 에러는 unknown 에러 처리한다.
+                // 그 외의 에러는 unknown 에러 처리한다.
                 completable(.error(TransitionError.unknown))
             }
             
