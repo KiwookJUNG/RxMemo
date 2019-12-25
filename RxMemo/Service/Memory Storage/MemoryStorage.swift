@@ -14,6 +14,7 @@ class MemoryStorage: MemoStorageType {
         MemoModel(content: "첫 번째 메모", insertDate: Date().addingTimeInterval(-10)),
         MemoModel(content: "두 번째 메모", insertDate: Date().addingTimeInterval(-20))
     ]
+    
     private lazy var store = BehaviorSubject<[MemoModel]>(value: list)
     
     @discardableResult

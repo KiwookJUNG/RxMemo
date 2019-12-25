@@ -10,6 +10,12 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+extension UIViewController {
+    var sceneViewController: UIViewController {
+        return self.children.first ?? self
+    }
+}
+
 class SceneCoordinator: SceneCoordinatorType {
     
     private let bag = DisposeBag()
@@ -35,7 +41,7 @@ class SceneCoordinator: SceneCoordinatorType {
         switch style {
         // root인 경우에는 그냥 rootVC를 바꿔준다.
         case .root:
-            currentVC = target
+            currentVC = target.sceneViewController
             window.rootViewController = target
             subject.onCompleted()
             
@@ -47,9 +53,15 @@ class SceneCoordinator: SceneCoordinatorType {
                 break
             }
             
+            nav.rx.willShow
+                .subscribe(onNext: { [unowned self] evt in
+                    self.currentVC = evt.viewController.sceneViewController
+                })
+                .disposed(by: bag)
+            
             // 네이게이션이 있다면 푸쉬 후 컴플리티드
             nav.pushViewController(target, animated: animated)
-            currentVC = target
+            currentVC = target.sceneViewController
     
             subject.onCompleted()
             
@@ -61,7 +73,7 @@ class SceneCoordinator: SceneCoordinatorType {
                 subject.onCompleted()
             }
             
-            currentVC = target
+            currentVC = target.sceneViewController
         }
         
         // subject.ignoreElements()를 하면 서브젝트의 반환형이 Completable로 방출된다.
@@ -79,7 +91,7 @@ class SceneCoordinator: SceneCoordinatorType {
             // modal 방식으로 전환된 화면은 dismiss 해준다
             if let presentingVC = self.currentVC.presentingViewController {
                 self.currentVC.dismiss(animated: animated) {
-                    self.currentVC = presentingVC
+                    self.currentVC = presentingVC.sceneViewController
                     completable(.completed)
                 }
             } else if let nav = self.currentVC.navigationController {
