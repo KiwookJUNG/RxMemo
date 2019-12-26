@@ -47,6 +47,10 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             .bind(to: viewModel.detailAction.inputs)
             .disposed(by: rx.disposeBag)
         
+        // 삭제될 때 마다 방출되는 컨트롤 이벤트
+        listTableView.rx.modelDeleted(MemoModel.self)
+            .bind(to: viewModel.deleteAction.inputs)
+            .disposed(by: rx.disposeBag)
       
     }
 
