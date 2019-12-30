@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import RxDataSources
 
-struct MemoModel: Equatable {
+// 데이터 소스에 저장되는 모든 데이터는 IdentifiableType 프로토콜을 채용해야함
+struct MemoModel: Equatable, IdentifiableType {
     var content: String
     var insertDate: Date
     var identity: String

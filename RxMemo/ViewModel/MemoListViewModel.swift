@@ -6,18 +6,33 @@
 //  Copyright © 2019 kiwook. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import Action
+import RxDataSources
 
 // 뷰 모델 추가되는 것
 // 1. 의존성을 주입하는 생성자.
 // 2. 바인딩에 사용되는 프로퍼티와 메소드
 
+typealias MemoSectionModel = AnimatableSectionModel<Int, MemoModel>
+
 class MemoListViewModel: CommonViewModel {
+    
+    let dataSource: RxTableViewSectionedAnimatedDataSource<MemoSectionModel> = {
+        let ds = RxTableViewSectionedAnimatedDataSource<MemoSectionModel>(configureCell: { (dataSource, tableView, indexPath, memo) -> UITableViewCell in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = memo.content
+            return cell
+        })
+        
+        ds.canEditRowAtIndexPath = { _, _ in return true}
+        return ds
+    }()
+    
     // 메모 목록
-    var memoList: Observable<[MemoModel]> {
+    var memoList: Observable<[MemoSectionModel]> {
         return storage.memoList()
     }
     
